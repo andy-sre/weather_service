@@ -18,6 +18,9 @@ class Weather:  # Weather Class
             else:
                 self.city = city
 
+    def get_city(self):
+        return self.city
+
     def set_country(self, country):
         if len(country) == 0:
             print('Please enter a country')
@@ -26,6 +29,9 @@ class Weather:  # Weather Class
                 print('Please enter a country in a string format')
             else:
                 self.country = country
+
+    def get_country(self):
+        return self.country
 
     def get_weather(self):
         res = requests.get(url.format(self.city, self.country, config.api_key))  # GET request to OpenWeatherAPI URL
