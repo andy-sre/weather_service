@@ -11,15 +11,21 @@ class Weather:  # Weather Class
 
     def set_city(self, city):
         if len(city) == 0:
-            print('Please enter a city in a string format')
+            print('Please enter a city')
         else:
-            self.city = city
+            if not city.isalpha():
+                print('Please enter a city in a string format')
+            else:
+                self.city = city
 
     def set_country(self, country):
         if len(country) == 0:
-            print('Please enter a country in a string format')
+            print('Please enter a country')
         else:
-            self.country = country
+            if not country.isalpha():
+                print('Please enter a country in a string format')
+            else:
+                self.country = country
 
     def get_weather(self):
         res = requests.get(url.format(self.city, self.country, config.api_key))  # GET request to OpenWeatherAPI URL
@@ -43,6 +49,7 @@ class Weather:  # Weather Class
               "\nWind speed is: " + str(weather_res['wind']['speed']) + " Knots")
 
 
-test = Weather('Dublin', 'IE')
-test.set_country('UK')
+test = Weather('', '')
+test.set_city('')
+test.set_country('')
 test.get_weather()
