@@ -27,6 +27,8 @@ class Weather:  # Weather Class
             self.display_weather(res)  # Runs print function
         elif res.status_code == 404:  # IF 404 print error saying country/city not found
             print("Error in getting weather data.  Please check your city & country entered")
+        elif res.status_code == 401:  # IF 404 print error saying country/city not found
+            print("Error in getting weather data.  Unauthorized")
         else:  # IF other error print issue with server
             print("Error in getting weather data.  Server may be having trouble")
 
